@@ -1,14 +1,5 @@
-import { neo4jgraphql } from "neo4j-graphql-js";
-import fs from "fs";
-import path from "path";
+import * as neo4jgraphql from "neo4j-graphql-js";
+import * as data from "./schema.graphql";
 
-/*
- * Check for GRAPHQL_SCHEMA environment variable to specify schema file
- * fallback to schema.graphql if GRAPHQL_SCHEMA environment variable is not set
- */
-
-export const typeDefs = fs
-  .readFileSync(
-    process.env.GRAPHQL_SCHEMA || path.join(__dirname, "schema.graphql")
-  )
-  .toString("utf-8");
+const neo4j = neo4jgraphql;
+export const typeDefs = data;

@@ -1,10 +1,6 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/grand-stack/grand-stack-starter&env=NEO4J_USER&env=NEO4J_URI&env=NEO4J_PASSWORD)
+# Crispy Umbrella Starter
 
-# GRANDstack Starter
-
-This project is a starter for building a [GRANDstack](https://grandstack.io) (GraphQL, React, Apollo, Neo4j Database) application. There are two components to the starter, the UI application (a React app) and the API app (GraphQL server).
-
-[![Hands On With The GRANDstack Starter](http://img.youtube.com/vi/rPC71lUhK_I/0.jpg)](http://www.youtube.com/watch?v=rPC71lUhK_I "Hands On With The GRANDstack Starter")
+This project is a GraphQL, Pick your UI, Apollo, Neo4j Database application. Drop your own UI, like [Aurelia](https://aurelia.io), or you can drop in React from GRANDStack.
 
 ## Quickstart
 
@@ -35,7 +31,6 @@ A good tutorial can be found here: https://www.youtube.com/watch?v=rPC71lUhK_I
 *Install dependencies*
 
 ```
-(cd ./ui && npm install)
 (cd ./api && npm install)
 ```
 
@@ -46,40 +41,13 @@ cd ./api && npm start
 
 ![](api/img/graphql-playground.png)
 
-### [`/ui`](./ui)
-
-This will start the GraphQL API in the foreground, so in another terminal session start the UI development server:
-
-*Start UI server*
-```
-cd ./ui && npm start
-```
-
-![](ui/img/default-app.png)
-
-See [the project releases](https://github.com/grand-stack/grand-stack-starter/releases) for the changelog.
-
 ## Deployment
 
-### Zeit Now v2
+The build utilizes Webpack.  Drop the .js file onto your server and run
 
-Zeit Now v2 can be used with monorepos such as grand-stack-starter. [`now.json`](https://github.com/grand-stack/grand-stack-starter/blob/master/now.json) defines the configuration for deploying with Zeit Now v2.
-
-1. Set the now secrets for your Neo4j instance:
-
+``` 
+node main.js 
 ```
-now secret add NEO4J_URI bolt+routing://<YOUR_NEO4J_INSTANCE_HERE>
-now secret add NEO4J_USER <YOUR_DATABASE_USERNAME_HERE>
-now secret add NEO4J_PASSWORD <YOUR_DATABASE_USER_PASSWORD_HERE>
-```
-
-2. Run `now`
-
-### Zeit Now v1
-
-1. Run `now` in `/api` and choose `package.json` when prompted.
-1. Set `REACT_APP_GRAPHQL_API` based on the API deployment URL from step 1 in `ui/.env`
-1. Run `now` in `/env` and choose `package.json` when prompted.
 
 ## Docker Compose
 
@@ -103,7 +71,3 @@ If you want to load the example DB after the services have been started:
 ```
 docker-compose run api npm run seedDb
 ```
-
-
-This project is licensed under the Apache License v2.
-Copyright (c) 2018 Neo4j, Inc.
